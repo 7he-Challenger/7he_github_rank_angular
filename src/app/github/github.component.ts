@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
 
 export class GithubComponent implements OnInit {
   data: any = [];
-  userCount: Number = 0;
+  userCount: number = 0;
   error: Boolean = false;
   defaultLocation: string = 'madagascar';
   displayedColumns: string[] = ['login', 'avatar_url'];
