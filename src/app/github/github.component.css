@@ -1,0 +1,10 @@
+table {
+    margin: auto;
+    width: 100%;
+  }
+
+  .container{
+    position: relative;
+    margin: auto;
+    width: 60%;
+  }

@@ -14,6 +14,7 @@ export class GithubComponent implements OnInit {
   userCount: Number = 0;
   error: Boolean = false;
   defaultLocation: string = 'madagascar';
+  displayedColumns: string[] = ['login', 'avatar_url'];
 
   constructor(private http: HttpServices) { }
 

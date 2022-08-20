@@ -10,4 +10,8 @@ export class HttpServices {
     get(url: string) {
         return this.http.get(url);
     }
+
+    getSynchrounous(url: any) {
+        return this.http.get(url).toPromise();
+    }
 }
