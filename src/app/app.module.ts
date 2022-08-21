@@ -9,6 +9,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import {MatTableModule} from '@angular/material/table';
     MatIconModule,
     MatCardModule,
     MatTableModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [GithubComponent]

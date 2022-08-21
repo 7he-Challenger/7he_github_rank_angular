@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpServices } from '../services/http.services';
 import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-github',
@@ -17,7 +18,7 @@ export class GithubComponent implements OnInit {
   displayedColumns: string[] = ['login', 'avatar_url'];
   per_page = 10;
   page = 1;
-
+  total_page = 1;
   constructor(private http: HttpServices) { }
 
   ngOnInit(): void {
@@ -33,6 +34,7 @@ export class GithubComponent implements OnInit {
             this.data = data.items;
             this.userCount = data.total_count;
             this.error = false;
+            this.total_page = Math.ceil(this.userCount / per_page);
           },
           error: (error: any) => {
             console.log(error)
@@ -40,5 +42,9 @@ export class GithubComponent implements OnInit {
         })
       )
       .subscribe();
+  }
+
+  public getUserInPage(event : PageEvent) {
+    this.getUsers(this.defaultLocation, event.pageSize, event.pageIndex + 1);
   }
 }

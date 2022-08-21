@@ -1,6 +1,6 @@
 <div class="container">
     <div class="header-container">
-        <h1>Github user from country : {{ defaultLocation }}</h1>
+        <h1 style="text-align: center;">Github ranking by country : {{ defaultLocation }}</h1>
     </div>
     <table mat-table [dataSource]="data" class="mat-elevation-z8">
         <ng-container matColumnDef="login">
@@ -19,4 +19,11 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+    <mat-paginator 
+              (page)="getUserInPage($event)"
+              [length]=total_page
+              [pageSize]=per_page
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              aria-label="Select page">
+    </mat-paginator>
 </div>
