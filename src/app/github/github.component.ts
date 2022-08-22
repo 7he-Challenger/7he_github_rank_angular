@@ -3,7 +3,7 @@ import { HttpServices } from '../services/http.services';
 import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { PageEvent } from '@angular/material/paginator';
-import {countries} from 'country-list-json';
+import {countries} from 'src/constants/countries';
 
 @Component({
   selector: 'app-github',
