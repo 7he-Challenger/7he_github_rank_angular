@@ -3,6 +3,7 @@ import { HttpServices } from '../services/http.services';
 import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { PageEvent } from '@angular/material/paginator';
+import {countries} from 'country-list-json';
 
 @Component({
   selector: 'app-github',
@@ -19,9 +20,11 @@ export class GithubComponent implements OnInit {
   per_page = 10;
   page = 1;
   total_page = 1;
+  countryList:any = [];
   constructor(private http: HttpServices) { }
 
   ngOnInit(): void {
+    this.countryList = countries;
     this.getUsers();
   }
 
@@ -44,7 +47,12 @@ export class GithubComponent implements OnInit {
       .subscribe();
   }
 
+
   public getUserInPage(event : PageEvent) {
     this.getUsers(this.defaultLocation, event.pageSize, event.pageIndex + 1);
+  }
+
+  public onChangeCountry(event: string) {
+    this.getUsers(event.toLowerCase());
   }
 }
